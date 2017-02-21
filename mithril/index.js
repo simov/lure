@@ -36,6 +36,16 @@ window.addEventListener('DOMContentLoaded', () => {
         )
         .catch((err) => console.log(err))
       }
+
+      m.request({
+        method: 'GET',
+        url: '/users'
+      })
+      .then((res) => {
+        vnode.state.active = res.active
+        vnode.state.total = res.total
+      })
+      .catch((err) => console.log(err))
     },
     view: (vnode) => form(vnode.state)
   })
