@@ -13,6 +13,8 @@
   },
   "dependencies": {
     "@request/client": "^0.1.0",
+    "mithril": "^1.0.1",
+    "mithril-node-render": "^2.0.0",
     "purest": "^3.0.1"
   },
   "devDependencies": {},
