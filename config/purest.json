@@ -1,0 +1,16 @@
+{
+  "slack": {
+    "https://slack.com": {
+      "__domain": {
+        "auth": {
+          "qs": {"token": "[0]"}
+        }
+      },
+      "api/{endpoint}": {
+        "__path": {
+          "alias": "__default"
+        }
+      }
+    }
+  }
+}
