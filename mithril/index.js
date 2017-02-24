@@ -27,8 +27,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
         m.request({
           method: 'POST',
-          url: '/send',
-          data: {email}
+          url: '/invite/send',
+          data: {org: document.querySelector('[type=hidden').value, email}
         })
         .then((res) => (res.error)
           ? status('error', res.error)
@@ -39,7 +39,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
       m.request({
         method: 'GET',
-        url: '/users'
+        url: '/invite/users',
+        data: {org: document.querySelector('[type=hidden').value}
       })
       .then((res) => {
         vnode.state.active = res.active

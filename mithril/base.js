@@ -12,5 +12,5 @@ module.exports = (m) =>
       m('script [type="text/javascript"]', {src: '/mithril/form.js'}),
       m('script [type="text/javascript"]', {src: '/mithril/index.js'})
     ),
-    m('body', m('#form'))
+    m('body', m('#form'), m('input[type=hidden] [value=[TeamConfigKey]]'))
   )
