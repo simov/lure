@@ -26,7 +26,7 @@
   "bin": {
     "slack-invitation": "./bin/"
   },
-  "main": "./server/",
+  "main": "./server/api",
   "files": [],
   "scripts": {},
   "engines": {
