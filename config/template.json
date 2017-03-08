@@ -1,28 +1,24 @@
 {
-  "development": {
-    "write-your-subdomain-here": {
-      "token": "",
-      "team": "",
-      "subdomain": "",
-      "invite": [],
-      "meta": [],
-      "static": {
-        "favicon": "",
-        "logo": "",
-        "css": [],
-        "js": []
-      },
-      "strings": [
-        "Join",
-        "on Slack!",
-        "users online now of",
-        "registered",
-        "Get my Invite",
-        "Please wait",
-        "Check your email!",
-        "or",
-        "sign in"
-      ]
-    }
-  }
+  "token": "",
+  "team": "",
+  "subdomain": "",
+  "invite": [],
+  "meta": [],
+  "static": {
+    "favicon": "",
+    "logo": "",
+    "css": [],
+    "js": []
+  },
+  "strings": [
+    "Join",
+    "on Slack!",
+    "users online now of",
+    "registered",
+    "Get my Invite",
+    "Please wait",
+    "Check your email!",
+    "or",
+    "sign in"
+  ]
 }
