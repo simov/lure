@@ -3,34 +3,44 @@
 var argv = require('minimist')(process.argv.slice(2))
 
 if (argv.help) {
-  console.log('--template path/to/base.js')
-  console.log('--location path/to/serve/location/')
+  console.log('--config path/to/config.json')
+  console.log('--build path/to/build/location/')
+  console.log('--serve path/to/build/location/')
+  console.log('--port number')
+  console.log('--env environment')
   process.exit()
 }
 
-if (!argv.template) {
-  console.error('Specify --template path/to/base.js')
+if (!argv.config) {
+  console.log('Specify --config path/to/config.json')
   process.exit()
 }
 
-if (!argv.location) {
-  console.error('Specify --location path/to/serve/location/')
-  process.exit()
-}
-
+var env = process.env.NODE_ENV || argv.env || 'development'
 
 var fs = require('fs')
 var path = require('path')
+var transpile = require('../lib/transpile')
+var minify = require('../lib/minify')
+var render = require('../lib/render')
 
-var m = require('./mithril')
-var render = require('mithril-node-render')
+if (argv.build) {
+  var config = require(path.resolve(process.cwd(), argv.config))[env]
+  var location = path.resolve(process.cwd(), argv.build)
 
-var template = require(path.resolve(process.cwd(), argv.template))
+  Object.keys(config).forEach((subdomain) => {
+    var dpath = path.resolve(location, subdomain)
 
-render(template(m)).then((html) => {
-  fs.writeFileSync(
-    path.resolve(process.cwd(), argv.location + 'index.html'),
-    '<!DOCTYPE html>\n' + html,
-    'utf8'
-  )
-})
+    if (!fs.existsSync(dpath)) {
+      fs.mkdirSync(dpath)
+    }
+
+    transpile(dpath)
+    minify(dpath)
+    render(dpath, config[subdomain])
+  })
+}
+
+if (argv.serve && argv.port) {
+  // TODO: implement http server
+}

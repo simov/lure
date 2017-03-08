@@ -68,7 +68,7 @@ p {
   width: 132px;
   height: 132px;
   display: inline-block;
-  background-size: cover
+  background-size: cover;
   position: relative;
   margin-bottom: 4rem
 }

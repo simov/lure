@@ -1,22 +1,26 @@
 {
   "name": "slack-invitation",
   "version": "1.0.0",
-  "description": "Slash Commands",
+  "description": "Slash Invitation Middleware",
   "private": true,
   "keywords": [],
   "license": "Apache-2.0",
-  "homepage": "https://github.com/simov/slack",
+  "homepage": "https://github.com/simov/slack-invitation",
   "author": "Simeon Velichkov <simeonvelichkov@gmail.com> (http://simov.github.io)",
   "repository": {
     "type": "git",
-    "url": "https://github.com/simov/slack.git"
+    "url": "https://github.com/simov/slack-invitation.git"
   },
   "dependencies": {
     "@request/client": "^0.1.0",
+    "babel-core": "^6.23.1",
+    "babel-preset-es2015": "^6.22.0",
+    "csso": "^2.3.1",
     "minimist": "^1.2.0",
     "mithril": "^1.0.1",
     "mithril-node-render": "^2.0.0",
-    "purest": "^3.0.1"
+    "purest": "^3.0.1",
+    "uglify-js": "^2.8.8"
   },
   "devDependencies": {},
   "bin": {
