@@ -173,3 +173,5 @@ p.signin a:hover {
   background-color: #2E7D32;
   color: #fff
 }
+
+img[src=""] { visibility: hidden; }
