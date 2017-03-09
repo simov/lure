@@ -6,8 +6,9 @@ var form = ({active, total, status, send}) =>
       m('p', config.strings[0], ' ', m('b', config.team), ' ', config.strings[1]),
       m('p.status', m('b.active', active), ' ', config.strings[2], ' ',
         m('b.total', total), ' ', config.strings[3]),
-      m('form',
-        m('input[type=email] [placeholder=you@yourdomain.com] [autofocus=true]'),
+      m('form', {onsubmit: send},
+        m('input[type=email] [placeholder=you@yourdomain.com] [autofocus=true]',
+          {onkeyup: send}),
         m('button[type=button]', {
           onclick: send,
           class: status.ok ? 'success' : status.error ? 'error' : null,

@@ -6,7 +6,20 @@ window.addEventListener('DOMContentLoaded', () => {
         active: 0,
         total: 0,
         status: {invite: true},
-        send: (e) => send(e.target.previousSibling.value)
+        send: (e) => {
+          // onkeyup
+          if (e.type === 'keyup') {
+            if (e.keyCode === 13) {
+              send(e.target.value)
+            }
+          }
+          // onclick
+          else {
+            send(e.target.previousSibling.value)
+          }
+          // onsubmit
+          return false
+        }
       }
 
       function status (key, value) {
