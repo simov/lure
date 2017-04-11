@@ -6,7 +6,7 @@ module.exports = (m, meta, static, config) =>
         m('meta', meta[index])
       ),
 
-      m('title', [config.strings[0], config.team, config.strings[1]].join(' ')),
+      m('title', [config.strings[0], config.name, config.strings[1]].join(' ')),
 
       m('link', {rel: 'shortcut icon', href: static.favicon}),
 
@@ -14,12 +14,12 @@ module.exports = (m, meta, static, config) =>
         m('link', {rel: 'stylesheet', type: 'text/css', href: path})
       ),
 
-      static.js.map((path) =>
-        m('script', {type: 'text/javascript', src: path})
-      ),
-
       m('script', {type: 'text/javascript'},
         'var config = ' + JSON.stringify(config)
+      ),
+
+      static.js.map((path) =>
+        m('script', {type: 'text/javascript', src: path})
       )
     ),
     m('body', m('#form'))

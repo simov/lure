@@ -30,18 +30,31 @@ window.addEventListener('DOMContentLoaded', () => {
         vnode.state.status[key] = (key === 'error' ? value : true)
       }
 
-      function send (email) {
+      function send (input) {
+        if (!input) {
+          return
+        }
+
         if (
-          !email ||
-          !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email)
-        ) return
+          config.provider === 'slack' &&
+          !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(input)) {
+          return
+        }
 
         status('wait')
+
+        var data = {key: config.key}
+        if (config.provider === 'github') {
+          data.user = input
+        }
+        else if (config.provider === 'slack') {
+          data.email = input
+        }
 
         m.request({
           method: 'POST',
           url: '/invite/send',
-          data: {org: config.subdomain, email}
+          data
         })
         .then((res) => (res.error)
           ? status('error', res.error)
@@ -53,7 +66,7 @@ window.addEventListener('DOMContentLoaded', () => {
       m.request({
         method: 'GET',
         url: '/invite/users',
-        data: {org: config.subdomain}
+        data: {key: config.key}
       })
       .then((res) => {
         vnode.state.active = res.active

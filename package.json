@@ -19,7 +19,7 @@
     "csso": "^2.3.1",
     "express": "^4.15.2",
     "minimist": "^1.2.0",
-    "mithril": "^1.0.1",
+    "mithril": "^1.1.1",
     "mithril-node-render": "^2.0.0",
     "purest": "^3.0.1",
     "serve-static": "^1.12.1",
@@ -29,7 +29,7 @@
   "bin": {
     "slack-invitation": "./bin/"
   },
-  "main": "./server/api",
+  "main": "./api/",
   "files": [],
   "scripts": {},
   "engines": {

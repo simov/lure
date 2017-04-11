@@ -1,4 +1,18 @@
 {
+  "github": {
+    "https://api.github.com": {
+      "__domain": {
+        "auth": {
+          "auth": {"bearer": "[0]"}
+        }
+      },
+      "{endpoint}": {
+        "__path": {
+          "alias": "__default"
+        }
+      }
+    }
+  },
   "slack": {
     "https://slack.com": {
       "__domain": {
