@@ -8,15 +8,11 @@ var api = require('../api/')
 
 
 module.exports = (location, config, key) => {
-  var server = express()
 
-  var invite = {
-    github: api.github(config),
-    slack: api.slack(config)
-  }
-
+  var invite = api(config)
   var template = fs.readFileSync(path.resolve(location, 'index.html'), 'utf8')
 
+  var server = express()
   server.use('/' + key, static(location))
   server.use(parser.json())
 
