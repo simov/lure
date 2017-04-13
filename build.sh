@@ -1,7 +1,5 @@
 #!/bin/bash
 
-VERSION=$1
-
 # before
 mkdir -p dist/
 

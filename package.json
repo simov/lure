@@ -32,7 +32,7 @@
     "uglify-js": "^2.8.8"
   },
   "bin": {
-    "lure": "./bin/"
+    "lure": "./bin/index.js"
   },
   "main": "./api/",
   "files": [

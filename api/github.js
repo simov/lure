@@ -10,13 +10,13 @@ module.exports = (config) => ({
     [key].concat(config[key].invite || [])
       .map((key) => github
         .put('orgs/' + config[key].id + '/memberships/' + user)
-        .headers({'user-agent': 'github-invitation'})
+        .headers({'user-agent': 'lure'})
         .auth(config[key].token)
         .request())),
 
   users: ({key}) => github
     .get('orgs/' + config[key].id + '/members')
-    .headers({'user-agent': 'github-invitation'})
+    .headers({'user-agent': 'lure'})
     .auth(config[key].token)
     .request()
     .then(([res, body]) => ({active: body.length}))
