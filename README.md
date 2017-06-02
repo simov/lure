@@ -60,8 +60,26 @@ Create `config.json` file with following content:
 }
 ```
 
+# Scopes
+
+- Slack `admin`
+- GitHub `admin:org`
+
 # Build
+
+```bash
+lure --config path/to/config.json --build path/to/location/
+lure --config path/to/config.json --build path/to/location/ --env production
+```
 
 # Serve
 
+```bash
+lure --config path/to/config.json --serve path/to/location/ --key [key-to-serve] --port 3000
+```
+
 # API
+
+```js
+// TODO
+```
