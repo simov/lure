@@ -1,6 +1,6 @@
 {
   "name": "lure",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Lure people to your public organization",
   "keywords": [
     "github",
@@ -39,12 +39,12 @@
     "api/",
     "bin/",
     "config/",
-    "dist/",
     "lib/",
     "mithril/",
     "server/",
     "LICENSE",
-    "README.md"
+    "README.md",
+    "package.json"
   ],
   "scripts": {},
   "engines": {
