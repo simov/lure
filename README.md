@@ -1,24 +1,29 @@
 
 # lure
 
-# config.json
+```bash
+npm i -g lure
+lure --config /path/to/config.json --port 3000 --env production
+```
 
-Create `config.json` file with following content:
+# config.json
 
 ```json
 {
   "development": {
-    "my-slack-org": {
-      "id": "[slack-org-subdomain]",
-      "name": "[Org Name]",
-      "token": "[access-token]",
-      "invite": [],
-      "meta": [],
+    "my-org": {
+      "provider": "slack or github",
+      "id": "[slack org subdomain or github org id]",
+      "name": "[readable name of your org]",
+      "token": "[OAuth access token]",
+      "invite": ["additional config keys to invite"],
+      "meta": ["additional meta tags to embed"],
       "static": {
-        "favicon": "",
-        "logo": "",
-        "css": [],
-        "js": []
+        "root": "/absolute/path/to/assets",
+        "favicon": "/assets/favicon.ico",
+        "logo": "/assets/logo.png",
+        "css": ["/assets/custom.css"],
+        "js": ["/assets/custom.js"]
       },
       "strings": [
         "Join",
@@ -31,55 +36,133 @@ Create `config.json` file with following content:
         "or",
         "sign in"
       ]
-    },
-    "my-github-org": {
-      "id": "[github-org-account-name]",
-      "name": "[Org Name]",
-      "token": "[access-token]",
-      "invite": [],
-      "meta": [],
-      "static": {
-        "favicon": "",
-        "logo": "",
-        "css": [],
-        "js": []
-      },
-      "strings": [
-        "Join",
-        "on GitHub!",
-        "active",
-        "members",
-        "Get my Invite",
-        "Please wait",
-        "Check your email!",
-        "or",
-        "sign in"
-      ]
     }
   }
 }
 ```
 
-# Scopes
+---
 
-- Slack `admin`
-- GitHub `admin:org`
+# Serve Multiple Invitation Screens
 
-# Build
-
-```bash
-lure --config path/to/config.json --build path/to/location/
-lure --config path/to/config.json --build path/to/location/ --env production
+```json
+{
+  "development": {
+    "my-slack-org": {},
+    "my-other-slack-org": {},
+    "my-github-org": {}
+  }
+}
 ```
 
-# Serve
+- `http://localhost:3000` serves _my-slack-org_
+- `http://localhost:3000/my-slack-org` serves _my-slack-org_
+- `http://localhost:3000/my-other-slack-org` serves _my-other-slack-org_
+- `http://localhost:3000/my-github-org` serves _my-github-org_
 
-```bash
-lure --config path/to/config.json --serve path/to/location/ --key [key-to-serve] --port 3000
+---
+
+# Organization
+
+## Slack
+
+- Organization: `https://varnalab.slack.com`
+- OAuth Scope: `admin`
+
+```json
+{
+  "provider": "slack",
+  "id": "varnalab",
+  "name": "VarnaLab",
+  "token": "[ACCESS_TOKEN]",
+}
 ```
 
-# API
+## GitHub
 
-```js
-// TODO
+- Organization: `https://github.com/varnalab`
+- OAuth Scope: `admin:org`
+
+```json
+{
+  "provider": "github",
+  "id": "varnalab",
+  "name": "VarnaLab",
+  "token": "[ACCESS_TOKEN]",
+}
+```
+
+---
+
+# Send Multiple Invitations
+
+Invitation sent from `my-slack-org` will result in sending an invitation to **both** `my-slack-org` and `my-other-slack-org`:
+
+```json
+{
+  "development": {
+    "my-slack-org": {
+      "invite": ["my-other-slack-org"]
+    },
+    "my-other-slack-org": {}
+  }
+}
+```
+
+---
+
+# Additional Meta Tags
+
+```json
+{
+  "meta": [
+    {"name": "author", "content": "Simeon Velichkov"}
+  ]
+}
+```
+
+```html
+<meta name="author" content="Simeon Velichkov">
+```
+
+---
+
+# Additional Static Files
+
+The `/assets` prefix is **required**!
+
+```json
+{
+  "static": {
+    "root": "/absolute/path/to/assets",
+    "favicon": "/assets/favicon.ico",
+    "logo": "/assets/logo.png",
+    "css": [
+      "/assets/custom.css"
+    ],
+    "js": [
+      "/assets/custom.js"
+    ]
+  }
+}
+```
+
+---
+
+# Localization
+
+```json
+{
+  "strings": [
+    "Присъедини се към чат канала на",
+    "в Slack!",
+    "потребители са активни в момента от",
+    "регистрирани",
+    "Вземи своята покана сега!",
+    "Поканата се изпраща",
+    "Провери пощата си!",
+    "или",
+    "се логни"
+  ]
+}
 ```

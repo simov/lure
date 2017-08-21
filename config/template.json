@@ -1,11 +1,13 @@
 {
   "github": {
+    "provider": "",
     "id": "",
     "name": "",
     "token": "",
     "invite": [],
     "meta": [],
     "static": {
+      "root": "",
       "favicon": "",
       "logo": "",
       "css": [],
@@ -24,12 +26,14 @@
     ]
   },
   "slack": {
+    "provider": "",
     "id": "",
     "name": "",
     "token": "",
     "invite": [],
     "meta": [],
     "static": {
+      "root": "",
       "favicon": "",
       "logo": "",
       "css": [],

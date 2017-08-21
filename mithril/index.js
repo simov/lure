@@ -53,7 +53,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
         m.request({
           method: 'POST',
-          url: '/invite/send',
+          url: '/api/send',
           data
         })
         .then((res) => (res.error)
@@ -65,7 +65,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
       m.request({
         method: 'GET',
-        url: '/invite/users',
+        url: '/api/users',
         data: {key: config.key}
       })
       .then((res) => {

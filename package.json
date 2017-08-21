@@ -32,21 +32,23 @@
     "uglify-js": "^3.0.28"
   },
   "bin": {
-    "lure": "./bin/index.js"
+    "lure": "./bin/serve.js"
   },
   "main": "./api/",
   "files": [
     "api/",
     "bin/",
-    "build/",
     "config/",
+    "dist/",
+    "lib/",
     "mithril/",
-    "server/",
     "LICENSE",
     "README.md",
     "package.json"
   ],
-  "scripts": {},
+  "scripts": {
+    "prepublish": "node bin/build.js"
+  },
   "engines": {
     "node": ">=8.0.0",
     "npm": ">=5.0.0"
