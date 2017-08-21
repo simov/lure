@@ -1,5 +1,5 @@
 
-module.exports = (m, meta, static, config) =>
+module.exports = ({m, meta, static, config}) =>
   m('html',
     m('head',
       meta.map((attrs, index) =>
