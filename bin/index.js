@@ -18,7 +18,7 @@ if (!argv.config) {
 }
 
 var path = require('path')
-var build = require('../lib/build')
+var build = require('../build')
 
 var env = process.env.NODE_ENV || argv.env || 'development'
 var config = require(path.resolve(process.cwd(), argv.config))[env]

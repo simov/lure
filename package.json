@@ -38,8 +38,8 @@
   "files": [
     "api/",
     "bin/",
+    "build/",
     "config/",
-    "lib/",
     "mithril/",
     "server/",
     "LICENSE",
