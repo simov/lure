@@ -53,7 +53,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
         m.request({
           method: 'POST',
-          url: '/api/send',
+          url: config.path + '/api/send',
           data
         })
         .then((res) => (res.error)
@@ -65,7 +65,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
       m.request({
         method: 'GET',
-        url: '/api/users',
+        url: config.path + '/api/users',
         data: {key: config.key}
       })
       .then((res) => {

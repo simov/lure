@@ -16,6 +16,7 @@ lure --config /path/to/config.json --port 3000 --env production
       "id": "[slack org subdomain or github org id]",
       "name": "[readable name of your org]",
       "token": "[OAuth access token]",
+      "path": "[path prefix for all routes]",
       "invite": ["additional config keys to invite"],
       "meta": ["additional meta tags to embed"],
       "static": {
@@ -144,6 +145,18 @@ The `/assets` prefix is **required**!
       "/assets/custom.js"
     ]
   }
+}
+```
+
+---
+
+# Path Prefix
+
+Prefix all invitation routes:
+
+```json
+{
+  "path": "/invite"
 }
 ```
 

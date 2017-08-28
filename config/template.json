@@ -4,6 +4,7 @@
     "id": "",
     "name": "",
     "token": "",
+    "path": "",
     "invite": [],
     "meta": [],
     "static": {
@@ -30,6 +31,7 @@
     "id": "",
     "name": "",
     "token": "",
+    "path": "",
     "invite": [],
     "meta": [],
     "static": {
